@@ -1,0 +1,37 @@
+{
+  "name": "eslint-config-p-ts",
+  "version": "0.1.0",
+  "description": "P's base JS ESLint config, following our styleguide.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./**/*.ts ./**/*.js"
+  },
+  "author": "Takuya Eguchi",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^6.8.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-use-optional-annotation": "^1.0.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-no-null": "^1.0.2"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akagire/eslint-config-p-ts.git"
+  },
+  "keywords": [
+    "eslint"
+  ],
+  "bugs": {
+    "url": "https://github.com/Akagire/eslint-config-p-ts/issues"
+  },
+  "homepage": "https://github.com/Akagire/eslint-config-p-ts#readme"
+}
