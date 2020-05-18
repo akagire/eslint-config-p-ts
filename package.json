@@ -4,12 +4,16 @@
   "description": "P's base JS ESLint config, following our styleguide.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./**/*.ts ./**/*.js"
+    "lint": "eslint ./**/*.ts ./**/*.js",
+    "test": "jest"
   },
   "author": "Takuya Eguchi",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
     "@typescript-eslint/parser": "^2.30.0",
+    "babel-jest": "^26.0.1",
     "eslint": "^6.8.0",
     "jest": "^26.0.1",
     "typescript": "^3.8.3"
