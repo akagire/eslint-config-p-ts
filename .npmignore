@@ -1,1 +1,4 @@
+.github/
 test/
+yarn-error.log
+jest.config.json
