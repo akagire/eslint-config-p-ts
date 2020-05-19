@@ -12,5 +12,19 @@ module.exports = {
     "plugins": [
         "@typescript-eslint"
     ],
-    "rules": {}
+    "rules": {},
+    overrides: [
+      {
+        'files': ['*.test.js'],
+        env: {
+          jest: true,
+        },
+        rules: {
+          'max-len': 'off',
+          'import/extensions': 'off',
+          'no-unused-vars': 'off',
+          '@typescript-eslint/no-unused-vars': 'off',
+        },
+      }
+    ],
 };

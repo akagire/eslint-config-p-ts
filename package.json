@@ -4,21 +4,26 @@
   "description": "P's base JS ESLint config, following our styleguide.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./**/*.ts ./**/*.js"
+    "lint": "eslint ./*.js test/lint.test.js",
+    "test": "jest"
   },
   "author": "Takuya Eguchi",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
     "@typescript-eslint/parser": "^2.30.0",
+    "babel-jest": "^26.0.1",
     "eslint": "^6.8.0",
+    "jest": "^26.0.1",
     "typescript": "^3.8.3"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^2.30.0",
     "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-use-optional-annotation": "^1.0.0",
     "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-no-null": "^1.0.2"
+    "eslint-plugin-no-null": "^1.0.2",
+    "eslint-plugin-use-optional-annotation": "^1.0.0"
   },
   "directories": {
     "test": "test"

@@ -22,7 +22,7 @@ module.exports = {
     camelcase: 'off',
 
     '@typescript-eslint/naming-convention': [2,
-      { selector: 'variable', format: ['camelCase'] },
+      { selector: 'variable', format: ['camelCase', 'UPPER_CASE'] },
       { selector: 'function', format: ['camelCase'] },
       { selector: 'property', format: ['camelCase'] },
       { selector: 'parameterProperty', format: ['camelCase'] },
@@ -43,7 +43,9 @@ module.exports = {
     }],
     '@typescript-eslint/type-annotation-spacing': ['error'],
 
+    'import/prefer-default-export': 'off',
     'import/no-default-export': ['warn'],
+
     'no-null/no-null': 'error',
     'use-optional-annotation/use-optional-annotation': 'error',
 
