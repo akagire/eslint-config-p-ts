@@ -4,7 +4,7 @@
   "description": "P's base JS ESLint config, following our styleguide.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./**/*.ts ./**/*.js",
+    "lint": "eslint ./*.js test/lint.test.js",
     "test": "jest"
   },
   "author": "Takuya Eguchi",
