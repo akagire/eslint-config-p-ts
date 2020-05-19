@@ -13,26 +13,26 @@ jobs:
       matrix:
         node-version: [12]
 
-      steps:
-        - name: Checkout Repo
-          uses: actions/checkout@v2
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
 
-        - name: Prepare Node Env
-          uses: actions/setup-node@v1
-          with:
-            node-version: ${{ matrix.node-version }}
+      - name: Prepare Node Env
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-        - name: Node Version
-          run: node -v
+      - name: Node Version
+        run: node -v
 
-        - name: Install Yarn
-          run: npm i -g yarn
+      - name: Install Yarn
+        run: npm i -g yarn
 
-        - name: Install Dependencies
-          run: yarn
+      - name: Install Dependencies
+        run: yarn
 
-        - name: lint
-          run: yarn lint
+      - name: lint
+        run: yarn lint
 
-        - name: Test
-          run: yarn test
+      - name: Test
+        run: yarn test
