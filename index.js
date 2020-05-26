@@ -13,6 +13,8 @@ module.exports = {
     'use-optional-annotation',
   ],
   rules: {
+    // NOTE: @typescript-eslint/no-unused-vars で対応
+    'no-unused-vars': 'off',
     'no-tabs': 'error',
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
@@ -54,7 +56,7 @@ module.exports = {
     'no-null/no-null': 'error',
     'use-optional-annotation/use-optional-annotation': 'error',
 
-    'no-unused-vars': ['error', {
+    '@typescript-eslint/no-unused-vars': ['error', {
       argsIgnorePattern: '^_',
     }],
 
