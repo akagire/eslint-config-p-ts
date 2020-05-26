@@ -57,6 +57,6 @@ describe('test', () => {
 
   test('interfaceNamePrefix', () => {
     const result = linter('test/fixtures/interfaceNamePrefix.ts');
-    expect(result.filter((r) => r === '@typescript-eslint/interface-name-prefix').length).toBe(1);
+    expect(result.filter((r) => r === '@typescript-eslint/naming-convention').length).toBe(1);
   });
 });
