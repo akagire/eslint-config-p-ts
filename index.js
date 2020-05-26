@@ -21,7 +21,7 @@ module.exports = {
     // NOTE: typescript-eslint/naming-conventionで対応
     camelcase: 'off',
 
-    '@typescript-eslint/naming-convention': [2,
+    '@typescript-eslint/naming-convention': ['error',
       { selector: 'variable', format: ['camelCase', 'UPPER_CASE'] },
       { selector: 'function', format: ['camelCase'] },
       { selector: 'property', format: ['camelCase'] },
@@ -30,6 +30,14 @@ module.exports = {
       { selector: 'accessor', format: ['camelCase'] },
       { selector: 'enumMember', format: ['PascalCase'] },
       { selector: 'typeLike', format: ['PascalCase'] },
+      {
+        selector: 'interface',
+        format: ['PascalCase'],
+        custom: {
+          regex: 'I[A-Z0-9].*',
+          match: true,
+        },
+      },
     ],
 
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
@@ -38,9 +46,6 @@ module.exports = {
       default: 'array',
       readonly: 'array',
     }],
-    '@typescript-eslint/interface-name-prefix': ['error', {
-      prefixWithI: 'always',
-    }],
     '@typescript-eslint/type-annotation-spacing': ['error'],
 
     'import/prefer-default-export': 'off',
@@ -48,6 +53,10 @@ module.exports = {
 
     'no-null/no-null': 'error',
     'use-optional-annotation/use-optional-annotation': 'error',
+
+    'no-unused-vars': ['error', {
+      argsIgnorePattern: '^_',
+    }],
 
     // TODO: try catch ではなく、 await catchを使う
     // https://persol-service-dev.esa.io/posts/347#%5BSHOULD%5D%20try-catch%E3%81%AF%E9%81%BF%E3%81%91%E3%80%81await%20catch%E3%82%92%E5%8F%82%E7%85%A7%E3%81%97%E3%81%BE%E3%81%99
