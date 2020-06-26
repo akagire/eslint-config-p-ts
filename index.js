@@ -23,6 +23,17 @@ module.exports = {
     // NOTE: typescript-eslint/naming-conventionで対応
     camelcase: 'off',
 
+    '@typescript-eslint/member-delimiter-style': ['error', {
+      'multiline': {
+        'delimiter': 'semi',
+        "requireLast": true
+      },
+      'singleline': {
+        'delimiter': 'semi',
+        'requireLast': true
+      },
+    }],
+
     '@typescript-eslint/naming-convention': ['error',
       { selector: 'variable', format: ['camelCase', 'UPPER_CASE'] },
       { selector: 'function', format: ['camelCase'] },
