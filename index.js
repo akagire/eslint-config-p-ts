@@ -24,13 +24,13 @@ module.exports = {
     camelcase: 'off',
 
     '@typescript-eslint/member-delimiter-style': ['error', {
-      'multiline': {
-        'delimiter': 'semi',
-        "requireLast": true
+      multiline: {
+        delimiter: 'semi',
+        requireLast: true,
       },
-      'singleline': {
-        'delimiter': 'semi',
-        'requireLast': true
+      singleline: {
+        delimiter: 'semi',
+        requireLast: true,
       },
     }],
 
