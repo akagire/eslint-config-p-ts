@@ -60,6 +60,11 @@ describe('test', () => {
     expect(result.filter((r) => r === '@typescript-eslint/naming-convention').length).toBe(1);
   });
 
+  test('interfacesSemicolon', () => {
+    const result = linter('test/fixtures/interfaceSemi.ts');
+    expect(result.filter((r) => r === '@typescript-eslint/member-delimiter-style').length).toBe(1);
+  });
+
   test('noUnusedVars', () => {
     const result = linter('test/fixtures/noUnusedVars.ts');
     expect(result.filter((r) => r === '@typescript-eslint/no-unused-vars').length).toBe(1);
