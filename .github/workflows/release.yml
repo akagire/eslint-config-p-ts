@@ -1,0 +1,36 @@
+# GitHub上でReleaseすると、指定バージョン名でnpmへリリースされる
+name: npm auto release
+on: push
+# デバッグ中はpushで実験
+#  release:
+#    types: [created]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12]
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Prepare Node Env
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Node Version
+        run: node -v
+
+      - name: debug...confirm version
+        run: echo ${{ github.event.release.tag_name }}
+
+      - name: debug...run shell script
+        run: ./release.sh
+        env:
+          VERSION: ${{ github.event.release.tag_name }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
