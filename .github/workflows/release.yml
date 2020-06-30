@@ -1,4 +1,5 @@
-# GitHub上でReleaseすると、指定バージョン名でnpmへリリースされる
+# When release in GitHub, specific versions package is published to npm.
+# Please note release need to create from master branch.
 name: npm auto release
 on:
   release:
