@@ -1,17 +1,17 @@
 NOW=$(cat package.json | grep version | cut -d " " -f 4 | tr -d "," | tr -d '"')
 
-# デバッグのため強制回避
-# NEXT=$VERSION
-NEXT=$NOW
+NEXT=$VERSION
+
 
 echo "NOW is $NOW"
 echo "NEXT is $NEXT"
 
 if [[ $NOW = $NEXT ]]; then
-  exit 255
+  echo Version No equal to latest version. Skip release Procedure.
+  exit 1
 fi
 
-echo need update
+echo Release Process Started...
 # Macでデバッグする際は gnu-sed をインストールするなどした上で、gsedに置き換えて実行してみてください
 sed -i package.json -e "s/\"version\": \"$NOW\"/\"version\": \"$NEXT\"/"
 
@@ -23,9 +23,9 @@ git commit -m "release: update $NEXT"
 git push -u origin HEAD
 
 npx can-npm-publish
-if [ $? = 1 ]; then
-  exit 255
+if [ $? != 0 ]; then
+  echo This version is Already released. Please Check version No or current version was released manualy.
+  exit 1
 fi
 
-echo ready to publish
-# yarn publish
+yarn publish

@@ -1,9 +1,8 @@
 # GitHub上でReleaseすると、指定バージョン名でnpmへリリースされる
 name: npm auto release
-on: push
-# デバッグ中はpushで実験
-#  release:
-#    types: [created]
+on:
+  release:
+    types: [created]
 jobs:
   build:
     runs-on: ubuntu-latest
