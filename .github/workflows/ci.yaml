@@ -1,5 +1,4 @@
-name:
-  eslint-config-ci
+name: eslint-config-ci
 
 on:
   pull_request:
