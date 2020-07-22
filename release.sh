@@ -12,7 +12,14 @@ if [[ $NOW = $NEXT ]]; then
 fi
 
 echo Release Process Started...
-# Macでデバッグする際は gnu-sed をインストールするなどした上で、gsedに置き換えて実行してみてください
+
+# reattach HEAD
+# https://github.com/actions/checkout/issues/6#issuecomment-564210263
+git checkout master
+
+# Here was debugged on mac.
+# When you use mac and need debugging here,
+# please install gnu-sed or something.
 sed -i package.json -e "s/\"version\": \"$NOW\"/\"version\": \"$NEXT\"/"
 
 git config --global user.name "GitHub Actions"
