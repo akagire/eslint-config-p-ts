@@ -5,7 +5,7 @@ This package provides P's base TS .eslintrc as an extensible shared config.
 This configure was created from this document.
 https://github.com/basarat/typescript-book/blob/master/docs/styleguide/styleguide.md
 
-## Changed rules  from TypeScript books style guide
+## Changed rules from TypeScript books style guide
 
 ### Naming
 
