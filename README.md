@@ -35,7 +35,7 @@ interface IMyProps {
 
 #### [SHOULD] No export default
 
-Please ignore this when needs use default export in flamework. (eg Nuxt's middleware)
+Please ignore this when needs use default export in framework. (eg Nuxt's middleware)
 
 *Bad*
 ```ts
