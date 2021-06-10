@@ -7,6 +7,10 @@
   "vulnerabilityAlerts": {
     "labels": ["security"]
   },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["after 10am and before 11am on wednesday"]
+  },
   "packageRules": [
     {
       "updateTypes": ["major"],
