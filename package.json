@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-no-null": "^1.0.2",
     "eslint-plugin-use-optional-annotation": "^1.0.0"
