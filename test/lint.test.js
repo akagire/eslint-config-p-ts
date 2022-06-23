@@ -1,72 +1,72 @@
-import { CLIEngine } from 'eslint';
+import { ESLint } from 'eslint';
 
-const cli = new CLIEngine();
+const eslint = new ESLint();
 
-const linter = (path) => {
-  const output = cli.executeOnFiles(path);
-  return output.results[0].messages.map((e) => e.ruleId);
+const linter = async (path) => {
+  const output = await eslint.lintFiles([path]);
+  return output[0].messages.map((e) => e.ruleId);
 };
 
 describe('test', () => {
-  test('noTab', () => {
-    const result = linter('test/fixtures/noTab.ts');
+  test('noTab', async () => {
+    const result = await linter('test/fixtures/noTab.ts');
     expect(result.filter((r) => r === 'no-tabs').length).toBe(1);
   });
 
-  test('semi', () => {
-    const result = linter('test/fixtures/semi.ts');
+  test('semi', async () => {
+    const result = await linter('test/fixtures/semi.ts');
     expect(result.filter((r) => r === 'semi').length).toBe(1);
   });
 
-  test('quotes', () => {
-    const result = linter('test/fixtures/quotes.ts');
+  test('quotes', async () => {
+    const result = await linter('test/fixtures/quotes.ts');
     expect(result.filter((r) => r === 'quotes').length).toBe(1);
   });
 
-  test('export', () => {
-    const result = linter('test/fixtures/export.ts');
+  test('export', async () => {
+    const result = await linter('test/fixtures/export.ts');
     expect(result.filter((r) => r === 'import/no-default-export').length).toBe(1);
   });
 
-  test('noNull', () => {
-    const result = linter('test/fixtures/noNull.ts');
+  test('noNull', async () => {
+    const result = await linter('test/fixtures/noNull.ts');
     expect(result.filter((r) => r === 'no-null/no-null').length).toBe(1);
   });
 
-  test('namingConvention', () => {
-    const result = linter('test/fixtures/namingConvention.ts');
+  test('namingConvention', async () => {
+    const result = await linter('test/fixtures/namingConvention.ts');
     // TODO: namespace を PascalCase とするルールがない。本当は 9 にしたい。
     expect(result.filter((r) => r === '@typescript-eslint/naming-convention').length).toBe(8);
   });
 
-  test('typeAnnotation', () => {
-    const result = linter('test/fixtures/typeAnnotation.ts');
+  test('typeAnnotation', async () => {
+    const result = await linter('test/fixtures/typeAnnotation.ts');
     // NOTE: baz :string の箇所は、:前と後の２箇所にエラーが出ているので 5 とカウント
     expect(result.filter((r) => r === '@typescript-eslint/type-annotation-spacing').length).toBe(5);
   });
 
-  test('optionalAnnotation', () => {
-    const result = linter('test/fixtures/optionalAnnotation.ts');
+  test('optionalAnnotation', async () => {
+    const result = await linter('test/fixtures/optionalAnnotation.ts');
     expect(result.filter((r) => r === 'use-optional-annotation/use-optional-annotation').length).toBe(1);
   });
 
-  test('noExplicitAny', () => {
-    const result = linter('test/fixtures/explicitAny.ts');
+  test('noExplicitAny', async () => {
+    const result = await linter('test/fixtures/explicitAny.ts');
     expect(result.filter((r) => r === '@typescript-eslint/no-explicit-any').length).toBe(1);
   });
 
-  test('interfaceNamePrefix', () => {
-    const result = linter('test/fixtures/interfaceNamePrefix.ts');
+  test('interfaceNamePrefix', async () => {
+    const result = await linter('test/fixtures/interfaceNamePrefix.ts');
     expect(result.filter((r) => r === '@typescript-eslint/naming-convention').length).toBe(1);
   });
 
-  test('interfacesSemicolon', () => {
-    const result = linter('test/fixtures/interfaceSemi.ts');
+  test('interfacesSemicolon', async () => {
+    const result = await linter('test/fixtures/interfaceSemi.ts');
     expect(result.filter((r) => r === '@typescript-eslint/member-delimiter-style').length).toBe(1);
   });
 
-  test('noUnusedVars', () => {
-    const result = linter('test/fixtures/noUnusedVars.ts');
+  test('noUnusedVars', async () => {
+    const result = await linter('test/fixtures/noUnusedVars.ts');
     expect(result.filter((r) => r === '@typescript-eslint/no-unused-vars').length).toBe(1);
   });
 });
