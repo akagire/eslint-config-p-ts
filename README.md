@@ -1,3 +1,7 @@
+
+**This repository was archived. And `eslint-config-p-ts` was renamed and moved to appropriate organization.
+Please don't use this package.**
+
 # eslint-config-p-ts
 
 This package provides P's base TS .eslintrc as an extensible shared config.
@@ -94,4 +98,3 @@ extends: ['p-ts']
 ```
 
 Please note here has meaning to the position. We prefer put it last or put before `prettier`.
-
